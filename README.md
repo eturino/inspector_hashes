@@ -4,6 +4,10 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 TODO: Delete this and the text above, and describe your gem
 
+## Usage
+
+TODO: Write usage instructions here
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -19,10 +23,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install inspector_hashes
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Development
 
