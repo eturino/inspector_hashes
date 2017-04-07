@@ -1,7 +1,14 @@
 require 'bundler/setup'
 require 'pry'
+require 'simplecov'
 require 'coveralls'
-Coveralls.wear!
+
+SimpleCov.formatters = [
+  Coveralls::SimpleCov::Formatter,
+  SimpleCov::Formatter::HTMLFormatter
+]
+
+SimpleCov.start
 
 require 'inspector_hashes'
 
