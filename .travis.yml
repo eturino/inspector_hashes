@@ -6,7 +6,10 @@ addons:
     repo_token: c15a6524170d4e8cccd5c7b7dd486be17fd56055a74d747a735032f17f198d74
 
 rvm:
-  - 2.4.0
+  - 2.4.1
+  - 2.3.3
+  - 2.2.6
+  - 2.1.10
 before_install: gem install bundler -v 1.14.6
 
 after_success:
