@@ -1,9 +1,9 @@
 require 'bundler/setup'
-require 'inspector_hashes'
-
 require 'pry'
 require 'coveralls'
 Coveralls.wear!
+
+require 'inspector_hashes'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
