@@ -2,8 +2,8 @@ require 'bundler/setup'
 require 'inspector_hashes'
 
 require 'pry'
-require 'simplecov'
-SimpleCov.start
+require 'coveralls'
+Coveralls.wear!
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
