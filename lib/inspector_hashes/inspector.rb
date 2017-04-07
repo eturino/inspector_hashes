@@ -1,6 +1,12 @@
 module InspectorHashes
 
-  # `InspectorHashes.diff(a, b)` will return the array of differences.
+  # `InspectorHashes.diff(a, b)` will return:
+  # - nil (if equal)
+  # - if given simple objects, a single difference object:
+  #   ```
+  #     { where: '', a: a, b: b }
+  #   ```
+  # - if a hash or an array: the array of differences.
   class Inspector
     attr_accessor :a, :b, :in_a, :in_b, :prefixes
 
