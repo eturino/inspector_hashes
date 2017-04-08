@@ -8,21 +8,21 @@ module InspectorHashes
   #   ```
   # - if a hash or an array: the array of differences.
   class Inspector
-    attr_accessor :a, :b, :in_a, :in_b, :prefixes
+    attr_accessor :a, :b, :a_exists, :b_exists, :prefixes
 
-    SEPARATOR = '.'.freeze
+    SEPARATOR = ' > '.freeze
     NO_KEY = '<<<key not present>>>'.freeze
 
-    def initialize(a:, b:, in_a: true, in_b: true, prefixes: [])
+    def initialize(a:, b:, a_exists: true, b_exists: true, prefixes: [])
       self.a = a
       self.b = b
-      self.in_a = in_a
-      self.in_b = in_b
+      self.a_exists = a_exists
+      self.b_exists = b_exists
       self.prefixes = prefixes
     end
 
     def call
-      return nil if a == b
+      return nil if a_exists && b_exists && a == b
 
       prepare_diff
     end
@@ -38,16 +38,16 @@ module InspectorHashes
 
     def diff_array
       longest = a.length > b.length ? a : b
-      diff_enumerator longest.each_index, :check_array_has_index
+      diff_enumerable longest.each_index, :check_array_has_index
     end
 
     def diff_hash
-      keys = a.keys.concat(b.keys).uniq
-      diff_enumerator keys, :check_hash_has_key
+      keys = (a.keys + b.keys).uniq.sort_by(&:to_s)
+      diff_enumerable keys.uniq, :check_hash_has_key
     end
 
-    def diff_enumerator(key_enumerator, check_method)
-      key_enumerator.map do |key|
+    def diff_enumerable(key_enumerable, check_method)
+      key_enumerable.map do |key|
         inspector_for(key, check_method).call
       end.compact.flatten
     end
@@ -55,21 +55,22 @@ module InspectorHashes
     def inspector_for(key, check_method)
       Inspector.new a: a[key],
                     b: b[key],
-                    in_a: send(check_method, a, key),
-                    in_b: send(check_method, b, key),
+                    a_exists: send(check_method, a, key),
+                    b_exists: send(check_method, b, key),
                     prefixes: prefixes_for(key)
     end
 
     def prefixes_for(key)
-      prefixes.dup.tap { |l| l << key.inspect }
+      new_prefix = key.is_a?(String) ? key : key.inspect
+      prefixes.dup.tap { |l| l << new_prefix }
     end
 
     def b_log_value
-      in_b ? b : NO_KEY
+      b_exists ? b : NO_KEY
     end
 
     def a_log_value
-      in_a ? a : NO_KEY
+      a_exists ? a : NO_KEY
     end
 
     def check_array_has_index(list, index)
