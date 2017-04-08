@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   InspectorHashes helps finding hidden differences in hashes and arrays, included nested, also spotting missing keys or indices
 TXT
   spec.description = <<-TXT
-  specially useful for spotting differences between expected json response and actual json response on requests specs
+  InspectorHashes helps finding hidden differences in hashes and arrays, included nested, also spotting missing keys or indices. Specially useful for spotting differences between expected json response and actual json response on requests specs
 TXT
   spec.homepage = 'https://github.com/eturino/inspector_hashes'
   spec.license = 'MIT'

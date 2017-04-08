@@ -1,4 +1,5 @@
 # InspectorHashes
+[![Gem Version](https://badge.fury.io/rb/inspector_hashes.svg)](https://badge.fury.io/rb/inspector_hashes)
 
 [![Code Climate](https://codeclimate.com/github/eturino/inspector_hashes/badges/gpa.svg)](https://codeclimate.com/github/eturino/inspector_hashes)
 
@@ -153,3 +154,9 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/eturin
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
+## Changelog
+
+### v1.0.1
+
+- minor changes in gemspec
+- including gem version badge in README
