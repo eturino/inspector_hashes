@@ -10,6 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors = ['Eduardo Turiño']
   spec.email = ['eturino@eturino.com']
 
+  spec.required_ruby_version = '>= 2.1'
+
   spec.summary = <<-TXT
   InspectorHashes helps finding hidden differences in hashes and arrays, included nested, also spotting missing keys or indices
 TXT

@@ -1,6 +1,8 @@
 # InspectorHashes
 [![Gem Version](https://badge.fury.io/rb/inspector_hashes.svg)](https://badge.fury.io/rb/inspector_hashes)
 
+[![Build Status](https://travis-ci.org/eturino/inspector_hashes.svg?branch=master)](https://travis-ci.org/eturino/inspector_hashes)
+
 [![Code Climate](https://codeclimate.com/github/eturino/inspector_hashes/badges/gpa.svg)](https://codeclimate.com/github/eturino/inspector_hashes)
 
 [![Issue Count](https://codeclimate.com/github/eturino/inspector_hashes/badges/issue_count.svg)](https://codeclimate.com/github/eturino/inspector_hashes)
@@ -8,6 +10,18 @@
 [![Test Coverage](https://codeclimate.com/github/eturino/inspector_hashes/badges/coverage.svg)](https://codeclimate.com/github/eturino/inspector_hashes/coverage)
 
 [![Coverage Status](https://coveralls.io/repos/github/eturino/inspector_hashes/badge.svg?branch=master)](https://coveralls.io/github/eturino/inspector_hashes?branch=master)
+
+## Requirements
+
+requires ruby >= 2.1
+
+Tested with:
+  - 2.4.1
+  - 2.3.3
+  - 2.2.6
+  - 2.1.10
+
+## Description
 
 Tests failing with huge responses that look basically the same? Don't really know where the issue is? If you try to use any string diff you can't see anything because all the errors are about key ordering in the hashes?
 
@@ -21,7 +35,7 @@ expected_data == response_data #=> false
 
 ```
 
-but where?
+But where?
 
 A string diff is going to spot a lot of false positives just because the order of the keys in your expected data is not the same as the order of the keys in your response data. That's not really helpful. And Rspec will show something like
 
@@ -31,7 +45,7 @@ A string diff is going to spot a lot of false positives just because the order o
         "meta" => {"total"=>2, "size"=>100, "page"=>1, "offset"=>0, "ids"=>[1, 2], "facets"=>{"team-names"=>[{"value"=>"Tatooine", "count"=>1}], "names"=>[{"value"=>"Rolando Huel", "count"=>1}, {"value"=>"Ewell Ledner", "count"=>1}], "role-names"=>[{"value"=>"Director", "count"=>1}, {"value"=>"Junior Developer", "count"=>1}], "main-roles"=>[{"value"=>"Director", "count"=>1}, {"value"=>"Junior Developer", "count"=>1}], "project-keys"=>[{"value"=>"mt", "count"=>1}, {"value"=>"rm", "count"=>1}], "employment-types"=>[{"value"=>"contractor", "count"=>1}, {"value"=>"employee", "count"=>1}]}},
 ```
 
-which tells you that while `meta` is the same in both, `data` is different.
+Which tells you that while `meta` is the same in both, `data` is different.
 
 What you want is to spot that your expected data has a typo, and you expect `ed-date` instead of `end-date` in one of the objects. 
 
@@ -155,6 +169,10 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/eturin
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
 ## Changelog
+
+### v1.0.2
+
+- specify min ruby version (2.1)
 
 ### v1.0.1
 
