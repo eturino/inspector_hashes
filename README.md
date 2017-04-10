@@ -1,14 +1,9 @@
 # InspectorHashes
 [![Gem Version](https://badge.fury.io/rb/inspector_hashes.svg)](https://badge.fury.io/rb/inspector_hashes)
-
 [![Build Status](https://travis-ci.org/eturino/inspector_hashes.svg?branch=master)](https://travis-ci.org/eturino/inspector_hashes)
-
 [![Code Climate](https://codeclimate.com/github/eturino/inspector_hashes/badges/gpa.svg)](https://codeclimate.com/github/eturino/inspector_hashes)
-
 [![Issue Count](https://codeclimate.com/github/eturino/inspector_hashes/badges/issue_count.svg)](https://codeclimate.com/github/eturino/inspector_hashes)
-
 [![Test Coverage](https://codeclimate.com/github/eturino/inspector_hashes/badges/coverage.svg)](https://codeclimate.com/github/eturino/inspector_hashes/coverage)
-
 [![Coverage Status](https://coveralls.io/repos/github/eturino/inspector_hashes/badge.svg?branch=master)](https://coveralls.io/github/eturino/inspector_hashes?branch=master)
 
 ## Requirements
